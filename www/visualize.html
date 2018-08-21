@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+    <script type="text/javascript" src="ts_zoomable.js"></script>
+  </head>
+  <body>
+
+  <h2>Data Visualization</h2>
+  <h3>Y2E2 Power: </h3>
+  <p>This page is intended to show images of power usage in Y2E2.  Currently this page is not
+     complete, and only hosts demos of time series visualiations</p>
+  <p>Click on different cells of the time series to zoom in</p>
+  <div id="viz"></div>
+
+  <div id="viz2"></div>
+
+  <div id="test"></div>
+  <script id="source" language="javascript" type="text/javascript">
+
+  ts_zoomable_demo();
+
+  $(function () 
+  {
+    $.get("mysql_api.php", { query: "SELECT * FROM mytest LIMIT 12" }, function(data){
+        var i = 0;
+	var time = [];
+	var value = [];
+	for (i=0;i<12;i++)
+	{
+          time[i] = data[i].time;
+	  value[i] = parseFloat(data[i].value);
+	}
+  	ts_zoomable_init("#viz2", value);
+
+    }, "json");
+
+    /*$.ajax({
+      type: 'GET',
+      url: 'mysql_api.php',
+      data: "{query:'SELECT%20*%20FROM%20mytest%20limit%205'}",
+      dataType: 'json',
+      success: function(data)
+      {
+	var i = 0;
+	var time = [];
+	var value = [];
+	for (i=0;i<24;i++)
+	{
+          time[i] = data[i]["time"];
+	  value[i] = parseFloat(data[i]["value"]);
+	}
+  	ts_zoomable_init("#viz2", value);
+      } 
+    });*/
+  }); 
+
+  </script>
+  </body>
+</html>
