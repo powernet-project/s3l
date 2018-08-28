@@ -30,3 +30,8 @@ located under `/var/www/`
 git commit -am "My important update message"
 git push
 ```
+Jonathan trying to get this through Lisa's thick head
+Making sure I remember that I have to be in the right directory in the terminal, but also then open the text editor (called Sublime)
+git commit is typed into the terminal
+after you change any files you go back to the terminal to commit them.
+(file menu, save)
