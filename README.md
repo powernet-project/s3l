@@ -35,3 +35,5 @@ Making sure I remember that I have to be in the right directory in the terminal,
 git commit is typed into the terminal
 after you change any files you go back to the terminal to commit them.
 (file menu, save)
+
+New changes after lisa added something
